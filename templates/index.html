@@ -9,9 +9,13 @@
             <div class="card-text">
                 {{ post.content | slice:"400" }}
             </div>
+            <br>
             <div class="card-text">
-                Autor: {{ post.author | title }}
+                <small class="text-muted">
+                    Autor: {{ post.author | title }}
+                </small>
             </div>
+            <br>
             <a class="btn btn-primary" href="{% url 'blog_view' post.slug %}">
                 Leer más
             </a>
