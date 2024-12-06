@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <form action="{% url 'translator_view' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-6 mt-3 left">
+                <textarea class="form-control" name="my_textarea" rows="5"
+                    placeholder="Escribe el texto que deseas traducir">{% if original_text %}{{ original_text }}{% endif %}</textarea>
+            </div>
+            <div class="col-sm-6 mt-3 right">
+                <textarea class="form-control" rows="5"
+                    placeholder="Aquí aparecerá la traducción">{% if output_text %}{{ output_text }}{% endif %}</textarea>
+                <input type="submit" class="btn btn-primary mt-3 ml-3" value="Traducir">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
